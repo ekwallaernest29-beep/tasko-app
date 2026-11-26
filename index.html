@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/tasko-app/logo-192.png" />
+    <link rel="manifest" href="/tasko-app/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/tasko-app/logo-192.png" />
+    <meta name="theme-color" content="#0d1f18" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="TASKO" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>TASKO</title>
+    <script>
+      // Garde la proposition d'installation du navigateur (Android, ordinateur) pour la page « Installer ».
+      window.addEventListener('beforeinstallprompt', function (event) {
+        event.preventDefault()
+        window.__taskoInstall = event
+        window.dispatchEvent(new Event('tasko-install-ready'))
+      })
+      window.addEventListener('appinstalled', function () {
+        window.__taskoInstall = null
+        window.dispatchEvent(new Event('tasko-install-ready'))
+      })
+    </script>
+    <script type="module" crossorigin src="/tasko-app/assets/index-K4y0Vryg.js"></script>
+    <link rel="stylesheet" crossorigin href="/tasko-app/assets/index-BNqCJWLW.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
